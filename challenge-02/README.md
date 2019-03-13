@@ -8,7 +8,7 @@ function sum(arg1,arg2){
   return (arg1 + arg2)
 }
 // Declare uma variável que receba a invocação da função criada acima, passando dois números quaisquer por argumento, e somando `5` ao resultado retornado da função.
-let sum = sum(3,2)
+let mySum = sum(3,2) + 5
 // Qual o valor atualizado dessa variável?
 5
 // Declare uma nova variável, sem valor.
@@ -20,10 +20,10 @@ Onde VALOR é o novo valor da variável.
 */
 function addValue(arg1){
   newVar = arg1
-  return newVar
+  return `O valor da variável agora é ${newVar}`
 }
 // Invoque a função criada acima.
-newVar = addValue('VALOR')
+addValue(25)
 
 // Qual o retorno da função? (Use comentários de bloco).
 /*VALOR*/
@@ -37,16 +37,12 @@ Crie uma função com as seguintes características:
 */
 function arg(arg1,arg2,arg3){
   error = 'Preencha todos os valores corretamente'
-  if(arg1 === undefined){
+
+  if(arg1 === undefined || arg2 === undefined || arg3 === undefined)
     return error
-  }else if (arg2 === undefined ){
-    return error
-  }else if(arg3 === undefined){
-    return error
-  }else{
-    let result = (arg1 * arg2 * arg3) + 2
-    return result
-  }
+
+  let result = (arg1 * arg2 * arg3) + 2
+  return result
 }
 
 // Invoque a função criada acima, passando só dois números como argumento.
