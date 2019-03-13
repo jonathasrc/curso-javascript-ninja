@@ -1,5 +1,6 @@
 # Desafio da semana #2
 
+```js
 Nesse exercício, você está livre para escolher os nomes para suas variáveis e funções! :smile:
 // Crie uma função que receba dois argumentos e retorne a soma dos mesmos.
 
