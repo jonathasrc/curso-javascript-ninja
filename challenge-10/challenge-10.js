@@ -1,3 +1,5 @@
+(function() {
+  
 /*
 Crie uma IIFE que envolva todo esse arquivo (inclusive esse comentário),
 e faça a indentação correta.
@@ -6,14 +8,15 @@ e faça a indentação correta.
 /*
 Sem alterar os códigos nos `console.log` abaixo, faça com que o retorno
 deles seja "true", usando os Wrapper Objects como "conversores" nos valores
-das variáveis. Analise o que está sendo impresso no console para saber como
+das letiáveis. Analise o que está sendo impresso no console para saber como
 resolver o problema corretamente.
 */
-var five = '5';
-console.log( five + ' é número?', typeof five === 'number' );
+  let five = '5';
+  five = Number(five)
+  console.log( five + ' é número?', typeof five === 'number' );
 
-var concat = 10 + 10;
-console.log( '"' + concat + '" é uma string? E é igual a "1010"?', typeof concat === 'string' );
+  let concat = String(10) + 10;
+  console.log( '"' + concat + '" é uma string? E é igual a "1010"?', typeof concat === 'string' );
 
 /*
 Voltando ao exemplo da calculadora, vamos utilizar mais uma abordagem
@@ -24,8 +27,13 @@ funcional, mas dessa vez, separando algumas responsabilidades.
 função receberá dois parâmetros e retornará a operação referente à sua
 propriedade, usando os valores passados por parâmetro.
 */
-// ?
-
+  let operation = {
+    '+' :function ( arg, arg2 ){ return x + y; },
+    '-' :function ( arg, arg2 ){ return x - y; },
+    '*' :function ( arg, arg2 ){ return x * y; },
+    '/' :function ( arg, arg2 ){ return x / y; },
+    '%' :function ( arg, arg2 ){ return x % y; }
+  }
 /*
 Crie uma função chamada `isOperatorValid`, que receberá um operador por
 parâmetro.
@@ -36,8 +44,10 @@ parâmetro a ela é válido, ou seja, se ele é igual a '+', '-', '*', '/' ou
 Caso contrário, "false".
 - O desafio é fazer o retorno sem usar "if" ou "switch".
 */
-// ?
-
+  function isOperatorValid ( operator ) {
+    return !!operation[ operator ]
+  }
+  console.log( isOperatorValid ( 'X' ) )
 /*
 Agora vamos criar a calculadora.
 - Crie uma função chamada `calculator`, que receberá como parâmetro um
@@ -72,16 +82,16 @@ Essa função deverá retornar a frase:
 /*
 Nossa calculadora está pronta! Agora vamos testá-la:
 PASSO 1:
-- Declare 3 variáveis: "number1" e "number2", iniciando com valor zero, e
+- Declare 3 letiáveis: "number1" e "number2", iniciando com valor zero, e
 "operationSignal", sem valor por enquanto.
 */
 // ?
 
 /*
 PASSO 2:
-Atribua à variável operationSignal o operador de soma, e declare uma
-variável chamada "sum", que receba a função "calculator", passando por
-parâmetro a variável que recebeu o sinal da operação.
+Atribua à letiável operationSignal o operador de soma, e declare uma
+letiável chamada "sum", que receba a função "calculator", passando por
+parâmetro a letiável que recebeu o sinal da operação.
 */
 // ?
 
@@ -89,7 +99,7 @@ parâmetro a variável que recebeu o sinal da operação.
 PASSO 3:
 "sum" agora é uma função, e, se o sinal correto não foi passado para a
 função "calculator", "sum" será false. Certifique-se de que "sum" não é
-"false", e então atribua às variáveis "number1" e "number2", dois números
+"false", e então atribua às letiáveis "number1" e "number2", dois números
 que serão os operandos da operação de soma.
 Após isso, mostre no console o resultado da operação, passando dois
 parâmetros para o método "log" de "console":
@@ -101,7 +111,7 @@ parâmetros para o método "log" de "console":
 
 /*
 Repita desde o "PASSO 2" com as operações de subtração, multiplicação,
-divisão e resto. Crie variáveis com os nomes "subtraction",
+divisão e resto. Crie letiáveis com os nomes "subtraction",
 "multiplication", "division" e "mod".
 */
 // ?
@@ -111,3 +121,4 @@ Repita o PASSO 2 novamente, mas passando um operador inválido, para ver se
 a mensagem de erro será mostrada no console.
 */
 // ?
+})();
