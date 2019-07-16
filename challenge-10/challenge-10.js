@@ -60,7 +60,17 @@ parâmetros;
 operador passado para a função "calculator", e passando para esse método
 os dois parâmetros da função de retorno de "calculator".
 */
-// ?
+function calculator ( operator ) {
+  if ( isOperatorValid( operator ) === true )
+    return function( arg, arg2 ) {
+      if ( typeof( arg ) !== 'number' || typeof( arg2 ) !== 'number' ){ 
+        return false;
+      }
+
+      return operation[ operator ];
+    };
+  return false;
+}
 
 /*
 Crie uma função chamada "showOperationMessage" que recebe três parâmetros:
@@ -69,7 +79,9 @@ deve ser a frase:
 'A operação [NUMBER1] [OPERATOR] [NUMBER2] =';
 Essa função mostrará a mensagem da operação que criaremos mais abaixo.
 */
-// ?
+function showOperationMessage ( operator, number, number2 ) {
+  return `A operação ${ number } ${ operator } ${ number2 } = `;
+}
 
 /*
 Crie uma função chamada "showErrorMessage" que recebe um parâmetro: o
@@ -77,7 +89,10 @@ operador da operação cálculo, quando a operação não for válida.
 Essa função deverá retornar a frase:
 'Operação "[OPERATOR]" não permitida!'
 */
-// ?
+function showErrorMessage ( operator ) {
+  return `Operação "${ operator }" não permitida! `;
+}
+
 
 /*
 Nossa calculadora está pronta! Agora vamos testá-la:
@@ -85,16 +100,17 @@ PASSO 1:
 - Declare 3 letiáveis: "number1" e "number2", iniciando com valor zero, e
 "operationSignal", sem valor por enquanto.
 */
-// ?
-
+let number = 0;
+let number1 = 0;
+let operationSignal = '';
 /*
 PASSO 2:
 Atribua à letiável operationSignal o operador de soma, e declare uma
 letiável chamada "sum", que receba a função "calculator", passando por
 parâmetro a letiável que recebeu o sinal da operação.
 */
-// ?
-
+operationSignal = '+';
+let sum = calculator( operationSignal )
 /*
 PASSO 3:
 "sum" agora é uma função, e, se o sinal correto não foi passado para a
@@ -107,8 +123,9 @@ parâmetros para o método "log" de "console":
 - O segundo, a função de soma, passando os dois operandos.
 - Se "sum" for "false", mostrar no console a mensagem de erro.
 */
-// ?
-
+number = 2;
+number1 = 2;
+console.log( !!t:sum( number, number1 ) ) 
 /*
 Repita desde o "PASSO 2" com as operações de subtração, multiplicação,
 divisão e resto. Crie letiáveis com os nomes "subtraction",
